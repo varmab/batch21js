@@ -18,8 +18,7 @@
             console.log("Welcome to " + myName);
 
 
-            var myNumbers=["one","two","three"];
-
+            
 
             var student={
                 name:"Varma",
@@ -83,8 +82,138 @@
                     console.log("unknown")
             }
 
-        
 
+            //while
+            var a=0;
+
+            while(a<=10){
+                console.log(a);
+                a++;
+            }
+
+            //do..while
+
+            var b=0;
+            do {
+                console.log(b);
+                b++;
+            }
+            while(b<=10)
+
+            //for
+            for(var c=0;c<=10;c++){
+                console.log(c);
+            }
+
+            console.log(add(1,2));
+
+            //function declaration // JavaScript Hoisting
+            function add(a,b){
+                return a+b;
+            }
+            
+            //function expression
+            var sum=function(a,b){
+                return a+b;
+            }
+            
+            console.log(sum(2,3))
+
+
+            //Arrays
+            var myNumbers=["one","two","three"];
+
+            myNumbers.push("four");
+            myNumbers.unshift("zero");
+
+            myNumbers.pop();
+            myNumbers.shift();
+
+            var myLetters=["a","b","c"];
+
+            myLetters.forEach(function(value){
+                console.log(value);
+            })
+
+            var movies=[
+                {
+                    id:1,
+                    title:"Bahubali",
+                    actor:"Prabhas",
+                    revenue:300,
+                    theaters:["A","B"]
+                },
+                {
+                    id:2,
+                    title:"Adhurs",
+                    actor:"NTR",
+                    revenue:45,
+                    theaters:["B","C"]
+                },
+                {
+                    id:3,
+                    title:"Kushi",
+                    actor:"Pavan",
+                    revenue:15,
+                    theaters:["C","D"]
+                }
+            ]
+
+            //1.is any movie crossed 100cr revenue?
+            //some
+            var isAny100=movies.some(function(movie){
+                return movie.revenue>=100;
+            })
+            console.log(isAny100);
+
+            //2.is all movies crossed 50cr revenue?
+            //every
+            var isAll50=movies.every(function(movie){
+                return movie.revenue>=50;
+            })
+
+            //3.I want list of movies released in theater "B"
+            //filter
+            var bMovies=movies.filter(function(movie){
+                return movie.theaters.indexOf("B")!=-1;
+            })
+            console.log(bMovies);
+
+            //4. I want list of actors of all movies
+            // ["Prabhas","NTR","Pavan"]
+            var actors=movies.map(function(movie){
+                return movie.actor;
+            })
+            console.log(actors)
+
+
+            //5. I want total revenue of all movies
+            var totalRevenue=movies.reduce(function(total,movie){
+                return total+movie.revenue;
+            },0)
+            console.log(totalRevenue);
+
+            //6. I want list of titles with comma seperated
+            // "Bahubali,Adhurs,Kushi"
+            var titles=movies.reduce(function(titles,movie){
+                if(titles=="") return movie.title;
+                return titles + ","+movie.title;
+            },'')
+            console.log(titles);
+
+            //7. I want single object containes movie title as key and actor as value
+            /*
+                {
+                    "Bahubali":"Prabhas",
+                    "Adhurs":"NTR",
+                    "Kushi":"Pavan"
+                }
+
+            */
+
+            //8. I want list of theaters of all movies
+            // ["A","B","C","D"]
+            
         </script>
         
     </head>
