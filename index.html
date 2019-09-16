@@ -137,6 +137,13 @@
 
             var movies=[
                 {
+                    id:3,
+                    title:"Kushi",
+                    actor:"Pavan",
+                    revenue:15,
+                    theaters:["C","D"]
+                },
+                {
                     id:1,
                     title:"Bahubali",
                     actor:"Prabhas",
@@ -150,13 +157,7 @@
                     revenue:45,
                     theaters:["B","C"]
                 },
-                {
-                    id:3,
-                    title:"Kushi",
-                    actor:"Pavan",
-                    revenue:15,
-                    theaters:["C","D"]
-                }
+               
             ]
 
             //1.is any movie crossed 100cr revenue?
@@ -210,9 +211,134 @@
                 }
 
             */
+            var titleActors=movies.reduce(function(titleActors,movie){
+                titleActors[movie.title]=movie.actor;
+                return titleActors;
+            },{})
+
+            console.log(JSON.stringify(titleActors));
 
             //8. I want list of theaters of all movies
             // ["A","B","C","D"]
+            var theaters=movies.reduce(function(theaters,movie){
+                movie.theaters.forEach(function(theater){
+                    if(!(theaters.includes(theater))) {
+                        theaters.push(theater);
+                    }
+                })
+                return theaters;
+            },[])
+
+            console.log(theaters);
+
+            movies.sort(function(a,b){
+                if(a.revenue>b.revenue) return 1;
+                if(a.revenue<b.revenue) return -1;
+                return 0;
+            })
+
+            //
+            // var user={};
+            // user.name="Varma"
+            // user["age"]=46;
+            // var key="school";
+            // user[key]="JNTU"
+
+            //Object Oriented Programming
+
+            //Classes - model or blue print
+
+            //Objects - instance of class
+
+            //Inheritance
+            //Encapsulation
+            //Polymorphism
+            //Abstraction
+
+            //Classes
+                //properties
+                //methods
+                //constructor
+
+            //Constructor functions
+            // function Person(name,age){
+            //     this.name=name;
+            //     this.age=age;
+            // }
+
+            // Person.prototype.showName=function(){
+            //     console.log(this.name);
+            // }
+
+            class Person {
+                constructor(name,age){
+                    this.name=name;
+                    this.age=age;
+                }
+
+                showName(){
+                    console.log(this.name);
+                }
+            }
+
+            var varma=new Person("Varma",46);
+            varma.showName();
+
+            // function Student(name, age, school){
+            //     this.name=name;
+            //     this.age=age;
+            //     this.school=school
+            // }
+
+            // Student.prototype=new Person();
+
+            // Student.prototype.showSchool=function(){
+            //     console.log(school);
+            // }
+
+            class Student extends Person{
+                constructor(name,age,school){
+                    super(name,age);
+                    this.school=school;
+                }
+
+                showSchool(){
+                    console.log(this.school)
+                }
+            }
+
+            var ram=new Student("Ram",24,"JNTU");
+            ram.showSchool();
+            ram.showName();
+
+            var user={};
+
+            user.name="Varma";
+            user["age"]=46;
+
+            // college name
+            user["college name"]="DPS";
+
+            delete user.age;
+
+            var teacher={x:1}
+
+            var student=Object.assign({},user,teacher);
+            student.degree="BTech";
+
+            var college={
+                name:"JNTU",
+                address:{
+                    street:"MIG 27/1",
+                    city:"Hyderabad"
+                }
+            }
+
+
+
+
+
+
             
         </script>
         
