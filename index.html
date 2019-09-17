@@ -339,11 +339,71 @@
 
 
 
+
+
             
         </script>
+        <style>
+            .red{
+                color:darkred
+            }
+
+            .blue{
+                color:blue
+            }
         
+        </style>
     </head>
     <body>
-        <h1>Welcome to JS Class</h1>
+        <h1 class="red">Welcome to JS Class</h1>
+
+        <a href="http://yahoo.com">Yahoo!!!</a>
+
+        <h1>Hello</h1>
+        <h1>Goodbye</h1>
+        <ul>
+            <li id="highlight">List Item 1</li>
+            <li class="bolded">List Item 2</li>
+            <li class="bolded">List Item 3</li>
+        </ul>
+
+        <button>Say Hello</button>
+
     </body>
 </html>
+<script>
+    var h1=document.querySelector("h1"); //SELECT
+    // h1.style.color="red";//MANIPULATE
+
+    //h1.classList.toggle("blue");
+    //h1.innerHTML="<b>Thank you</b> for coming"
+
+    var firstLi=document.getElementById("highlight");
+    firstLi.style.color="green";
+
+    var boldedLis=document.getElementsByClassName("bolded");
+    boldedLis[0].style.color="red"
+    boldedLis[1].style.color="red"
+
+    var allLis=document.getElementsByTagName("li");
+    allLis[0].style.color="blue"
+    allLis[1].style.color="blue"
+    allLis[2].style.color="blue"
+
+    var a=document.querySelector("a");
+    a.setAttribute("href","http://google.com")
+    a.textContent="Google";
+
+    var button=document.querySelector("button");
+    button.addEventListener("click",function(){
+        alert("Hello")
+    })
+
+    h1.addEventListener("mouseover",function(){
+        h1.textContent="Thank you for coming"
+    })
+
+    h1.addEventListener("mouseout",function(){
+        h1.textContent="Welcome to JS Class"
+    })
+</script>
