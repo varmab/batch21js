@@ -421,3 +421,85 @@
     $("#third").css("border","1px solid orange");
     $("div:first").css("color","pink");
 </script>
+
+<script>
+    var a=10;
+
+    if(true){
+        let a=20;
+        console.log(a);
+    }
+
+    console.log(a); //? 
+
+    const PI=3.14
+
+    //PI=5.45; //Error
+
+    
+
+    var firstName="Varma";
+    var lastName="Bhupatiraju";
+    var address="MIG 27/1, Road#6";
+    var area="KPHB";
+    var city="Hyderabad";
+    var state="TS";
+    var postalCode=500072;
+
+    var shippingLabel= firstName + " " + lastName + "\n"
+    + address + "\n"
+    + area + ", " + city + "\n"
+    + state + " " + postalCode;
+
+    console.log(shippingLabel);
+
+    var newShippingLabel=`
+    ${firstName} ${lastName}
+    ${address}
+    ${area}, ${city}
+    ${state} ${postalCode}
+    ${add(1,2)}
+    `
+
+    console.log(newShippingLabel);
+
+    var add=function(...numbers){
+        return numbers.reduce(function(total,number){
+            return total+number;
+        })
+    }
+
+    var a=[1,2,3]
+    var b=[4,5,6]
+
+    var c=a.concat(b);
+    var d=[...a,...b]
+
+
+    var sum=(a,b)=>{
+        return a+b;
+    }
+
+    var family=["varma","neelima","suma","father","mother","father-in-law","mother-in-law"];
+
+    // var me=family[0]
+    // var wife=family[1]
+    // var daughter=family[2]
+
+    var [me,wife,daughter,...others]=family;
+
+    var student={
+        name:"varma",
+        age:46
+    }
+
+    // var name=student.name;
+    // var age=student.age;
+
+    var {name,age}=student;
+
+
+
+
+
+</script>
